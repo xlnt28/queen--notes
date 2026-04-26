@@ -1,30 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Notes.MainPage">
+             x:Class="Notes.MainPage"
+             BackgroundColor="{AppThemeBinding Light=#FFF6FB, Dark=#1C1420}">
 
-    <VerticalStackLayout Margin="30,60,30,30">
+    <VerticalStackLayout Margin="24,56,24,24"
+                         Spacing="18">
 
         <Label Text="Notes"
                HorizontalOptions="Center"
-               FontAttributes="Bold" />
+               FontAttributes="Bold"
+               FontSize="30"
+               TextColor="{AppThemeBinding Light=#A33B73, Dark=#FFD0E6}" />
 
-        <Editor x:Name="editor"
-                Placeholder="Enter your note"
-                HeightRequest="100" />
+        <Border BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#2B2130}"
+                Stroke="{AppThemeBinding Light=#F5C4DE, Dark=#714866}"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 16"
+                Padding="14,12">
+            <Editor x:Name="editor"
+                    Placeholder="Enter your note"
+                    HeightRequest="120" />
+        </Border>
 
-        <Grid ColumnDefinitions="Auto, 30, Auto">
-
+        <Grid ColumnDefinitions="*,12,*">
             <Button Grid.Column="0"
                     Text="Save"
-                    WidthRequest="100"
+                    FontAttributes="Bold"
                     Clicked="OnSaveButtonClicked" />
 
             <Button Grid.Column="2"
                     Text="Delete"
-                    WidthRequest="100"
+                    BackgroundColor="{AppThemeBinding Light=#F8E1EE, Dark=#5A3450}"
+                    TextColor="{AppThemeBinding Light=#8C2F61, Dark=#FFE2F1}"
                     Clicked="OnDeleteButtonClicked" />
-
         </Grid>
 
     </VerticalStackLayout>
